@@ -5,7 +5,7 @@ This repository contains data from online experiments using the SPOTTER Framewor
 
 Each data file inside the folder `experiments` contains the dialogue of one human-chatbot interaction. Files are ordered by participant number (1-197). A .csv and .json version is available of each data file.
 
-The data is structured as follows:
+_The data is structured as follows:_
 
 Each entry contains one utterance. The utterance is annotated with the following annotations:
 - **start**: The start time of the utterance in seconds measuring from the beginning of the dialogue
