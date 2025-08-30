@@ -1,6 +1,40 @@
 # SPOTTER Online Data
-This repository contains data from online experiments using the SPOTTER Framework (Kruijt et al. 2024). The data contains 
+This repository contains data from online experiments using the SPOTTER Framework (Kruijt et al. 2024). The data contains human-chatbot task-based dialogue about a game in which the goals is for the human and chatbot to verbally identify the positions of characters in a picture, without seeing each other's picture. The game is made up of 15 rounds, with each round containing 5 characters which must be identified. The data can be used to study convention formation, common ground, referring expressions, and coreference resolution. For more information on the framework, see the paper.
 
+## Data structure
+
+Each data file inside the folder `experiments` contains the dialogue of one human-chatbot interaction. Files are ordered by participant number (1-197). A .csv and .json version is available of each data file.
+
+The data is structured as follows:
+
+Each entry contains one utterance. The utterance is annotated with the following annotations:
+- **start**: The start time of the utterance in seconds measuring from the beginning of the dialogue
+- **end**: The end time of the utterance in seconds
+- **text**: The text representation of the utterance
+- **speaker**: The source of the utterance, either `robot` or `human`
+- **robot-guess**: The character ID of the character that the chatbot guessed as the referent of the human's description: character ID between 1-40
+- **certainty**: The certainty between 0-1 that the chatbot has about its guess
+- **status**: The output status representing the result of the chatbot's reference resolution attempt: either `SUCCESS_HIGH`, `SUCCESS_LOW`, `MATCH_PREVIOUS`, `NO_MATCH`, or `MATCH_MULTIPLE`
+- **round**: The current round of the game: number between 1-6
+- **transaction unit**: Index number of the current transaction unit, a unit representing the set of utterances required to identify and locate one character
+- **position**: The position of the character that is currently being discussed in the human's picture
+- **gold character**: The correct ID of the character that is currently being discussed
+- **final guess**: The chatbot's final guess for a character
+- **circle**: The circle that the character currently being discussed belongs to. Either `inner` or `outer`, respectively representing whether the character appears in multiple rounds or not
+- **robot_correct**: The veracity of the chatbot's final guess, comparing `final guess` to `gold character`. Either `correct` or `incorrect`
+- **tu_relation**: The relation between two subsequent utterances in a transaction unit, representing the dialogue act of the utterance
+- **hum-selection**: The position in the chatbot's scene that the human selected after completing a transaction unit to identify the position of a character
+
+## Citation
+When using the data, please cite the following PhD thesis:
+
+`@article{kruijt2025impact,
+  title={The Impact of Common Ground on Referring Expressions in Human-Robot interaction},
+  author={Kruijt, Jaap Matthijs},
+  year={2025}
+}`
+
+Additionally, when using the SPOTTER framework, please cite the following paper:
 `@inproceedings{kruijt2024spotter,
   title={SPOTTER: A Framework for Investigating Convention Formation in a Visually Grounded Human-Robot Reference Task},
   author={Kruijt, Jaap and van Minkelen, Peggy and Donatelli, Lucia and Vossen, Piek TJM and Konijn, Elly and Baier, Thomas},
