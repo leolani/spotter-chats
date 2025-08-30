@@ -8,8 +8,7 @@ Each data file inside the folder `experiments` contains the dialogue of one huma
 _The data is structured as follows:_
 
 Each entry contains one utterance. The utterance is annotated with the following annotations:
-**start**:
-The start time of the utterance in seconds measuring from the beginning of the dialogue
+- **start**: The start time of the utterance in seconds measuring from the beginning of the dialogue
 - **end**: The end time of the utterance in seconds
 - **text**: The text representation of the utterance
 - **speaker**: The source of the utterance, either `robot` or `human`
